@@ -1,11 +1,11 @@
 
 
-# open file and store as a single string
-open("inputs//day1_1.txt", "r") do io
-    input = read(io, String)
+# open file and store content into a string
+input = open("AdventOfCode//inputs//day1_1.txt", "r") do io
+    read(io, String)
 end
 
-# split the string in a vector and parse it as integers
+# split the string into a vector and parse it as integers
 data = parse.(Int, split(input))
 
 
