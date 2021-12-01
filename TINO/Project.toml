@@ -1,0 +1,4 @@
+name = "AdventOfCode"
+uuid = "fa188dc9-9d45-4ca9-ae18-05e49360edb9"
+authors = ["etienne.lomet <etienne.lomet@dirac.com>"]
+version = "0.1.0"
