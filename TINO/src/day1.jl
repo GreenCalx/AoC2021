@@ -22,7 +22,7 @@ println("part1: ", result1)
 # generate the new data (gliding window of 3 terms sum)
 data3 = zeros(Int, length(data) - 2)
 for i = 1:length(data)-2
-    data3[i] = data[i] + data[i+1] + data[i+2]
+    data3[i] = sum(data[i:i+2])
 end
 
 # bit-sum of all the "true" when checking for positive in the derivation of data
