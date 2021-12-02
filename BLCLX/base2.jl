@@ -30,11 +30,16 @@ mutable struct SUBMARINE
   X::Int
   Z::Int
   AIM::Int
-  SUBMARINE() = new(0,0)
+  DEPTH::Int
+  SUBMARINE() = new(0,0,0,0)
 end
-function updateSub(sub::SUBMARINE,iX::Int64, iZ::Int64)
+function updateSub(sub::SUBMARINE, iX::Int64, iZ::Int64)
   sub.X += iX
   sub.Z += iZ
+  sub.AIM += iZ
+  if iX > 0
+    sub.DEPTH += ( sub.AIM * iX )
+  end
 end
 
 println("#######################")
@@ -80,6 +85,9 @@ println("SUBMARINE : $subx:$subz")
 
 submul = subx * subz
 println("PART 1 RESULT : $submul")
+
+submul2 = subx * submarine.DEPTH
+println("PART 2 RESULT : $submul2")
 
 # close file
 close(fd)
