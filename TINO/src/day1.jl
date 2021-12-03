@@ -1,7 +1,7 @@
 
 
 # open file and store content into a string
-input = open("AdventOfCode//inputs//day1_1.txt", "r") do io
+input = open("inputs//day1.txt", "r") do io
     read(io, String)
 end
 
