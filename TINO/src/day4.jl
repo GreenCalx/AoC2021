@@ -28,26 +28,18 @@ end
 # methods
 
 function reset!(bingo::Bingo)
-    bingo.checks .= 0
+    bingo.checks .= false
     return nothing
 end
 
-function win(bingo::Bingo)
-    n_row = size(grid(bingo), 1)
-    for n = 1 : n_row
-        if sum(checks(bingo)[:, n]) == n_row || sum(checks(bingo)[n, :]) == n_row
-            return true
-        end
-    end
-    return false
-end
+win(bingo::Bingo) = any(all.(eachrow(checks(bingo)))) || any(all.(eachcol(checks(bingo))))
 
 function check!(bingo::Bingo, num::Int)
     bingo.checks += grid(bingo) .== num
     win(bingo)
 end
 
-score(bingo::Bingo, num::Int) = num * sum(grid(bingo) .* (checks(bingo) .== false))
+score(bingo::Bingo, num::Int) = num * sum(grid(bingo) .* .!checks(bingo))
 
 
 ########## Part 1 ##########
