@@ -31,7 +31,11 @@ is_straight(l::Line) = l.is_straight
 
 function Line(entry::String, include_diagonals::Bool)
     a, b = Point.(String.(split(entry, " -> ")))
+    Line(a, b, include_diagonals)
+end
 
+function Line(a::Point, b::Point, include_diagonals)
+    
     is_straight = x(a) == x(b) || y(a) == y(b)
     if include_diagonals
         is_straight = is_straight || (abs(x(a) - x(b)) == abs(y(a) - y(b)))
