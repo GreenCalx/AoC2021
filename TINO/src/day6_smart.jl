@@ -12,9 +12,7 @@ end
 
 function live_another_day!(fishes)
     n_spawns = fishes[1]
-    for day = 1:8
-        fishes[day] = fishes[day+1]
-    end
+    fishes[1:8] = fishes[2:9]
     fishes[9] = n_spawns
     fishes[7] += n_spawns
     return nothing
