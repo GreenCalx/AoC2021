@@ -21,7 +21,7 @@ function main(input_name)
     total_score1 = 0
     total_scores2 = Int[]
     for line in data
-        
+
         opened_chars = Char[]
         corrupted = false
         for char in line
@@ -51,7 +51,7 @@ function main(input_name)
     sort!(total_scores2)
 
     println("Part 1: ", total_score1)
-    println("Part 2: ", total_scores2[ceil(Int, length(total_scores2) / 2)])
+    println("Part 2: ", total_scores2[(end + 1) ÷ 2])
 
 end
 
